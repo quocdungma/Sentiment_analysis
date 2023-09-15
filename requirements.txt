@@ -12,6 +12,5 @@ nltk
 findspark
 pyngrok
 requests
-pickle
 regex
 joblib
