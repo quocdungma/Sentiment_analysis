@@ -272,9 +272,9 @@ sidebar_option = st.sidebar.selectbox(
     ("Giới thiệu", "🔍 Tìm kiếm theo sản phẩm", "Nhập bình luận để dự đoán")
 )
 
-st.sidebar.markdown(f"<h1 style='font-size:20px;'>😊 Tích cực</h1>", unsafe_allow_html=True)
-st.sidebar.markdown(f"<h1 style='font-size:20px;'>😐 Trung tính</h1>", unsafe_allow_html=True)
-st.sidebar.markdown(f"<h1 style='font-size:20px;'>😢 Tiêu cực</h1>", unsafe_allow_html=True)
+st.sidebar.markdown(f"<h1 style='font-size:10px;'>😊 Tích cực</h1>", unsafe_allow_html=True)
+st.sidebar.markdown(f"<h1 style='font-size:10px;'>😐 Trung tính</h1>", unsafe_allow_html=True)
+st.sidebar.markdown(f"<h1 style='font-size:10px;'>😢 Tiêu cực</h1>", unsafe_allow_html=True)
 
 if sidebar_option == "Giới thiệu":
     st.title("Giới thiệu về ứng dụng")
