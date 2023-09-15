@@ -1,0 +1,17 @@
+streamlit
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+underthesea
+pyvi
+pandas_profiling
+pyspark
+nltk
+findspark
+pyngrok
+requests
+pickle
+regex
+joblib
