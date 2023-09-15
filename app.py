@@ -410,14 +410,31 @@ elif sidebar_option == "🔍 Tìm kiếm theo sản phẩm":
         with cols[i % 2]:
             st.image(product["image"])
             if st.button(product["name"], key=f"product_{product['product_id']}"):
-                current_product_id = product["product_id"]
+                st.session_state.current_product_id = product["product_id"]
                 display_comments(product["product_id"])
             # Điều chỉnh cỡ chữ và định dạng chữ cho các trường 'sold' và 'price'
             st.markdown(f"<p style='font-size: small;'>Đã bán: {product['sold']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='font-size: small;'>Reviews: {product['review_count']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='font-size: small;'>Rate: {product['rating_average']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='font-size: larger; font-weight: bold;'>Giá: {int(product['price']):,} đ</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='font-size: small;'>Product id: {product['product_id']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='font-size: larger; font-weight: bold;'>Giá: {product['price']}</p>", unsafe_allow_html=True)
 
+            with st.expander("Thêm bình luận"):
+                with st.form(key=f'add_comment_{product["product_id"]}'):
+                    st.text_input('Tên', key=f'username_{product["product_id"]}')
+                    st.slider('Đánh giá', min_value=0, max_value=5, key=f'rating_{product["product_id"]}')
+                    st.text_area('Nội dung', key=f'content_{product["product_id"]}')
+                    
+                    if st.form_submit_button('Thêm bình luận'):
+                        new_comment = {
+                            "product_id": product['product_id'],
+                            "username": st.session_state[f'username_{product["product_id"]}'],
+                            "rating": st.session_state[f'rating_{product["product_id"]}'],
+                            "content": st.session_state[f'content_{product["product_id"]}']
+                        }
+                        st.session_state.comments.append(new_comment)
+                        st.write('Bình luận đã được thêm')
+                        display_comments(st.session_state.current_product_id)
 elif sidebar_option == "Nhập bình luận để dự đoán":
     st.title("Đánh giá nhận xét của người dùng")
     user_input = st.text_area("Nhập bình luận của bạn ở đây")
