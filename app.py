@@ -300,7 +300,7 @@ if sidebar_option == "Giới thiệu":
 
     st.header('Phương pháp sử dụng:', divider='rainbow')
     st.write("Phương pháp Random Forest")
-    st.write("Độ chính xác: gần 94%")
+    st.write("Độ chính xác: hơn 95%")
     st.image("https://editor.analyticsvidhya.com/uploads/74060RF%20image.jpg", caption="Mô hình Random Forest")
 
 elif sidebar_option == "🔍 Tìm kiếm theo sản phẩm":
